@@ -2,45 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+:root{
+  --olive:#6d8a5e;
+  --sand:#ab8863;
+  --gray:#3d4e46;
+}
+
 @layer base {
-  :root {
-    --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    --font-geist: 'Geist', system-ui, sans-serif;
-    --font-geist-mono: 'Geist Mono', monospace;
-    --font-mona: 'Mona Sans', system-ui, sans-serif;
-    --font-ibm-plex: 'IBM Plex Sans', system-ui, sans-serif;
-    --font-manrope: 'Manrope', system-ui, sans-serif;
-  }
-
-  html {
-    font-family: var(--font-sans);
-    font-feature-settings: "rlig" 1, "calt" 1;
-  }
-
-  body {
-    @apply antialiased;
-  }
+  html { font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+  body { @apply antialiased bg-[#0b1411]; }
 }
 
-/* Custom utility classes for shadcn/ui patterns */
-@layer utilities {
-  .animate-in {
-    animation-name: animateIn;
-    animation-duration: 350ms;
-    --tw-enter-opacity: initial;
-    --tw-enter-scale: initial;
-    --tw-enter-rotate: initial;
-    --tw-enter-translate-x: initial;
-    --tw-enter-translate-y: initial;
-  }
+/* Glassmorphism helpers */
+.glass { @apply backdrop-blur-md bg-white/5 border border-white/10; }
 
-  .animate-out {
-    animation-name: animateOut;
-    animation-duration: 350ms;
-    --tw-exit-opacity: initial;
-    --tw-exit-scale: initial;
-    --tw-exit-rotate: initial;
-    --tw-exit-translate-x: initial;
-    --tw-exit-translate-y: initial;
-  }
-}
+/* Typography scale */
+.h1{ @apply text-4xl md:text-6xl font-serif; }
+.h2{ @apply text-3xl md:text-4xl font-serif; }
+.h3{ @apply text-2xl font-semibold; }
+
+/* Buttons */
+.btn{ @apply inline-flex items-center gap-2 px-5 py-3 rounded-lg font-medium transition; }
+.btn-olive{ @apply text-white; background-image: linear-gradient(90deg, var(--olive), var(--sand)); }
+.btn-ghost{ @apply bg-white/10 text-white border border-white/20 hover:bg-white/20; }
